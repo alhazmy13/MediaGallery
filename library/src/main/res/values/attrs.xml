@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MediaGalleryView">
+        <attr name="span_count" format="integer"/>
+        <attr name="place_holder" format="reference" />
+    </declare-styleable>
+
+
+</resources>

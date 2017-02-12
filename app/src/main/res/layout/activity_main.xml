@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<net.alhazmy13.mediagallery.library.views.MediaGalleryView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/gallery"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:place_holder="@drawable/placeholder"
+    app:span_count="3" />
