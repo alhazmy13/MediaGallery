@@ -1,16 +1,19 @@
 
-# Media Gallery
+# 🖼 Media Gallery
 ![](https://img.shields.io/badge/Platform-Android-brightgreen.svg)
 ![](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![](https://img.shields.io/badge/version-0.1.0_beta-blue.svg)
 
 ------
+## 📝 Description
 
-## Screenshots 
+You may already know of [MediaPicker](https://github.com/alhazmy13/MediaPicker), the all in one solution for capturing pictures and selecting images. Based on the same concept that powers MediaPicker, MediaGallery has a clearer flow based on albums and focuses on the use case of selecting images.
+
+## 📱 Screenshots 
 <img src="https://cloud.githubusercontent.com/assets/4659608/22867461/c77d039e-f199-11e6-8be6-027ae6e7af75.gif" width="300" align="center">
 
 
-## Installation
+## 🔧 Installation
 
 **Maven**
 
@@ -37,7 +40,10 @@ dependencies {
 }
 ```
 
-## MeidaGallery Activity  
+## Usage
+
+### MeidaGallery Activity  
+<img width="240" src="https://cloud.githubusercontent.com/assets/4659608/22868150/8e43286a-f1a3-11e6-909f-a351ee4e04cc.png" align="center">
 
 ```java
         MediaGallery.Builder(this,list)
@@ -50,7 +56,9 @@ dependencies {
 
 
 
-## MeidaGallery View
+### MeidaGallery View
+<img width="240"  src="https://cloud.githubusercontent.com/assets/4659608/22868151/8e4488b8-f1a3-11e6-819c-8ce420f806ea.png">
+
  
 ```java
 <net.alhazmy13.mediagallery.library.views.MediaGalleryView
@@ -71,4 +79,12 @@ And from your activity :
         view.notifyDataSetChanged();
 
 ```
+
+## 👤 Author
+
+* Abdullah Alhazmy
+
+## 📄 License
+
+MediaGallery is available under the Apache 2 license. See the LICENSE file for more info.
 
