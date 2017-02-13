@@ -1,8 +1,8 @@
 
 # 🖼 Media Gallery
 ![](https://img.shields.io/badge/Platform-Android-brightgreen.svg)
-![](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![](https://img.shields.io/badge/version-0.1.0_beta-blue.svg)
+![](https://img.shields.io/hexpm/l/plug.svg)
+![](https://img.shields.io/badge/version-0.1.1_beta-blue.svg)
 
 ------
 ## 📝 Description
