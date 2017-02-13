@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://cloud.githubusercontent.com/assets/4659608/22895545/f12d3986-f22d-11e6-81b4-dc5376fb76dd.png" >
+</p>
+
 
 # 🖼 Media Gallery
 ![](https://img.shields.io/badge/Platform-Android-brightgreen.svg)
