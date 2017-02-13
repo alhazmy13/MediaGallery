@@ -8,8 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import net.alhazmy13.mediagallery.library.R;
 import net.alhazmy13.mediagallery.library.views.MediaGalleryView;
@@ -39,7 +38,7 @@ public class GridImagesAdapter extends RecyclerView.Adapter<GridImagesAdapter.Vi
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        Picasso.with(mContext)
+        Glide.with(mContext)
                 .load(imageURLs.get(holder.getAdapterPosition()))
                 .placeholder(imgPlaceHolderResId)
                 .into(holder.image);

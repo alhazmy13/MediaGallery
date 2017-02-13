@@ -1,5 +1,4 @@
 
-</p>
 # Media Gallery
 ![](https://img.shields.io/badge/Platform-Android-brightgreen.svg)
 ![](https://img.shields.io/packagist/l/doctrine/orm.svg)
@@ -8,7 +7,8 @@
 ------
 
 ## Screenshots 
-  
+<img src="https://cloud.githubusercontent.com/assets/4659608/22867461/c77d039e-f199-11e6-8be6-027ae6e7af75.gif" width="300" align="center">
+
 
 ## Installation
 
@@ -16,9 +16,10 @@
 
 ```xml
 <dependency>
-<groupId>net.alhazmy13.mediagallery</groupId>
-<artifactId>library</artifactId>
-<version>0.1.0-beta</version>
+  <groupId>net.alhazmy13.mediagallery</groupId>
+  <artifactId>library</artifactId>
+  <version>0.1.1-beta</version>
+  <type>pom</type>
 </dependency>
 ```
 
@@ -32,7 +33,7 @@ repositories {
 }
 
 dependencies {
-	compile 'net.alhazmy13.mediagallery:library:0.1.0-beta'
+	compile 'net.alhazmy13.mediagallery:library:0.1.1-beta'
 }
 ```
 
