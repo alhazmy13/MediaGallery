@@ -50,7 +50,7 @@ abstract class BaseActivity extends AppCompatActivity {
     }
 
     private void initBaseViews() {
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar_media_gallery);
         if (getSupportActionBar() != null) {
             mToolbar.setVisibility(View.GONE);
             getSupportActionBar().setTitle(String.valueOf(title));
