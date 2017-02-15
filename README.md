@@ -6,7 +6,7 @@
 # 🖼 Media Gallery
 ![](https://img.shields.io/badge/Platform-Android-brightgreen.svg)
 ![](https://img.shields.io/hexpm/l/plug.svg)
-![](https://img.shields.io/badge/version-0.1.2_beta-blue.svg)
+![](https://img.shields.io/badge/version-0.1.4_beta-blue.svg)
 
 ------
 ## 📝 Description
@@ -25,7 +25,7 @@ You may already know of [MediaPicker](https://github.com/alhazmy13/MediaPicker),
 <dependency>
   <groupId>net.alhazmy13.mediagallery</groupId>
   <artifactId>library</artifactId>
-  <version>0.1.2-beta</version>
+  <version>0.1.4-beta</version>
   <type>pom</type>
 </dependency>
 ```
@@ -40,7 +40,7 @@ repositories {
 }
 
 dependencies {
-	compile 'net.alhazmy13.mediagallery:library:0.1.2-beta'
+	compile 'net.alhazmy13.mediagallery:library:0.1.4-beta'
 }
 ```
 

@@ -6,7 +6,7 @@
     android:id="@+id/mainLayout"
     android:orientation="vertical">
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_media_gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <net.alhazmy13.mediagallery.library.activity.adapter.CustomViewPager
@@ -14,7 +14,7 @@
         android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar" />
+        android:layout_below="@+id/toolbar_media_gallery" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/imagesHorizontalList"
