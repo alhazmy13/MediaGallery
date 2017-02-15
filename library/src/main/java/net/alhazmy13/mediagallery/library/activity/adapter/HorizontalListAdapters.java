@@ -50,7 +50,7 @@ public class HorizontalListAdapters extends RecyclerView.Adapter<HorizontalListA
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         Glide.with(mContext)
                 .load(mDataset.get(holder.getAdapterPosition()))
-                .placeholder(placeHolder == -1?R.drawable.placeholder:placeHolder)
+                .placeholder(placeHolder == -1?R.drawable.media_gallery_placeholder :placeHolder)
                 .into(holder.image);
         ColorMatrix matrix = new ColorMatrix();
         if (mSelectedItem != holder.getAdapterPosition()) {
