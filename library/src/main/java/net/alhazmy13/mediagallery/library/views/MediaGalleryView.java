@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import net.alhazmy13.mediagallery.library.R;
 import net.alhazmy13.mediagallery.library.views.adapter.GridImagesAdapter;
@@ -39,6 +40,9 @@ public class MediaGalleryView extends RecyclerView {
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.MediaGalleryView, 0, 0);
         mSpanCount = a.getInteger(R.styleable.MediaGalleryView_span_count,2);
         mPlaceHolder = a.getDrawable(R.styleable.MediaGalleryView_place_holder);
+        if(mPlaceHolder == null){
+            mPlaceHolder = ContextCompat.getDrawable(mContext,R.drawable.media_gallery_placeholder);
+        }
         init();
 
     }
@@ -56,8 +60,11 @@ public class MediaGalleryView extends RecyclerView {
     }
 
     public void notifyDataSetChanged(){
-        if(mAdapter!= null)
-        mAdapter.notifyDataSetChanged();
+        if(mAdapter!= null) {
+            mAdapter.notifyDataSetChanged();
+        }else{
+            init();
+        }
     }
 
     public void setPlaceHolder(int placeHolder) {

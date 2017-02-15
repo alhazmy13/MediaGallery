@@ -10,7 +10,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/placeholder"
+        android:src="@drawable/media_gallery_placeholder"
         android:layout_margin="1dp"
         android:scaleType="centerCrop"/>
 </RelativeLayout>

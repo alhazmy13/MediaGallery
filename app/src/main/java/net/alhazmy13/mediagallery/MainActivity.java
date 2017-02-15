@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements MediaGalleryView.
         MediaGallery.Builder(this,list)
                 .title("Media Gallery")
                 .backgroundColor(R.color.white)
-                .placeHolder(R.drawable.placeholder)
+                .placeHolder(R.drawable.media_gallery_placeholder)
                 .selectedImagePosition(pos)
                 .show();
     }

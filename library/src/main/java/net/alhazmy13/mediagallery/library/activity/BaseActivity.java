@@ -7,6 +7,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import net.alhazmy13.mediagallery.library.Constants;
 import net.alhazmy13.mediagallery.library.R;
@@ -48,14 +49,17 @@ abstract class BaseActivity extends AppCompatActivity {
 
     }
 
-
     private void initBaseViews() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        if (getSupportActionBar() != null){
+        if (getSupportActionBar() != null) {
+            mToolbar.setVisibility(View.GONE);
             getSupportActionBar().setTitle(String.valueOf(title));
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setHomeButtonEnabled(true);
+        } else {
+            setSupportActionBar(mToolbar);
+            mToolbar.setTitle(String.valueOf(title));
         }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
 
