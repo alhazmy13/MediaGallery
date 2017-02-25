@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/alhazmy13/MediaGallery'
     gitUrl = 'https://github.com/alhazmy13/MediaGallery.git'
 
-    libraryVersion = '0.1.4-beta'
+    libraryVersion = '0.1.5-beta'
 
     developerId = 'alhazmy13'
     developerName = 'Abdullah Alhazmy'

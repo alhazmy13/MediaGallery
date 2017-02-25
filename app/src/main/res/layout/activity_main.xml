@@ -7,4 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:place_holder="@drawable/media_gallery_placeholder"
-    app:span_count="2" />
+    app:orientation="horizontal"
+    app:image_width="300dp"
+    app:image_height="200dp"
+    app:span_count="2"/>

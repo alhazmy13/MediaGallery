@@ -20,15 +20,16 @@ public class GridImagesAdapter extends RecyclerView.Adapter<GridImagesAdapter.Vi
     private static final String TAG = "GridImagesAdapter";
     private ArrayList<String> imageURLs;
     private Context mContext;
-    private Drawable imgPlaceHolderResId ;
+    private Drawable imgPlaceHolderResId;
     private MediaGalleryView.OnImageClicked mClickListener;
+    private int mHeight;
+    private int mWidth;
 
     public GridImagesAdapter(Context activity, ArrayList<String> imageURLs, Drawable imgPlaceHolderResId) {
         this.imageURLs = imageURLs;
         this.mContext = activity;
         this.imgPlaceHolderResId = imgPlaceHolderResId;
     }
-
 
 
     @Override
@@ -46,10 +47,20 @@ public class GridImagesAdapter extends RecyclerView.Adapter<GridImagesAdapter.Vi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mClickListener == null) return;
+                if (mClickListener == null) return;
                 mClickListener.onImageClicked(holder.getAdapterPosition());
             }
         });
+
+        ViewGroup.LayoutParams params = holder.image.getLayoutParams();
+
+        if (mHeight != -1 && mHeight != MediaGalleryView.DEFAULT)
+            params.height = mHeight;
+
+        if (mWidth != -1 && mWidth != MediaGalleryView.DEFAULT)
+            params.width = mWidth;
+
+        holder.image.setLayoutParams(params);
     }
 
 
@@ -64,6 +75,11 @@ public class GridImagesAdapter extends RecyclerView.Adapter<GridImagesAdapter.Vi
 
     public void setOnImageClickListener(MediaGalleryView.OnImageClicked onImageClickListener) {
         this.mClickListener = onImageClickListener;
+    }
+
+    public void setImageSize(int width, int height) {
+        this.mWidth = width;
+        this.mHeight = height;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
