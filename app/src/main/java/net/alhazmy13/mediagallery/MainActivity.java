@@ -2,6 +2,8 @@ package net.alhazmy13.mediagallery;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.LinearLayout;
+
 import net.alhazmy13.mediagallery.library.activity.MediaGallery;
 import net.alhazmy13.mediagallery.library.views.MediaGalleryView;
 
@@ -19,6 +21,9 @@ public class MainActivity extends AppCompatActivity implements MediaGalleryView.
         MediaGalleryView view = (MediaGalleryView) findViewById(R.id.gallery);
         view.setImages(list);
         view.setOnImageClickListener(this);
+        view.setPlaceHolder(R.drawable.media_gallery_placeholder);
+        view.setOrientation(MediaGalleryView.VERTICAL);
+        view.setImageSize(500,MediaGalleryView.DEFAULT);
         view.notifyDataSetChanged();
 
 

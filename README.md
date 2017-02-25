@@ -25,7 +25,7 @@ You may already know of [MediaPicker](https://github.com/alhazmy13/MediaPicker),
 <dependency>
   <groupId>net.alhazmy13.mediagallery</groupId>
   <artifactId>library</artifactId>
-  <version>0.1.4-beta</version>
+  <version>0.1.5-beta</version>
   <type>pom</type>
 </dependency>
 ```
@@ -40,7 +40,7 @@ repositories {
 }
 
 dependencies {
-	compile 'net.alhazmy13.mediagallery:library:0.1.4-beta'
+	compile 'net.alhazmy13.mediagallery:library:0.1.5-beta'
 }
 ```
 
@@ -82,6 +82,52 @@ And from your activity :
         view.setOnImageClickListener(this);
         view.notifyDataSetChanged();
 
+```
+
+### Additional options
+
+* Scrolling type 
+
+<img width="240" src="https://cloud.githubusercontent.com/assets/4659608/23334317/1dce4f56-fbad-11e6-90b1-bed0044c03c3.gif">
+<img width="240" src="https://cloud.githubusercontent.com/assets/4659608/23334316/1dcd9d2c-fbad-11e6-99e2-3f51f8793a84.gif">
+
+
+
+```java
+	view.setOrientation(MediaGalleryView.VERTICAL);
+	
+	// OR from xml file
+	
+	<net.alhazmy13.mediagallery.library.views.MediaGalleryView
+	...
+	app:orientation="horizontal"
+	/>
+
+```
+
+* Custom image size.
+
+```java
+   view.setImageSize(500,MediaGalleryView.DEFAULT);
+
+	//OR
+
+	<net.alhazmy13.mediagallery.library.views.MediaGalleryView
+	...
+    app:image_width="300dp"
+    app:image_height="200dp"/>
+```
+
+* Custom Place Holder.
+
+```java
+	view.setPlaceHolder(R.drawable.media_gallery_placeholder);
+	
+	//OR
+	
+	<net.alhazmy13.mediagallery.library.views.MediaGalleryView
+	...
+    app:place_holder="@drawable/media_gallery_placeholder"/>
 ```
 
 ## 👤 Author
