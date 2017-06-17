@@ -6,7 +6,7 @@
 # 🖼 Media Gallery
 ![](https://img.shields.io/badge/Platform-Android-brightgreen.svg)
 ![](https://img.shields.io/hexpm/l/plug.svg)
-![](https://img.shields.io/badge/version-0.1.4_beta-blue.svg)
+![](https://img.shields.io/badge/version-0.1.6_beta-blue.svg)
 
 ------
 ## 📝 Description
@@ -100,7 +100,7 @@ And from your activity :
 	
 	<net.alhazmy13.mediagallery.library.views.MediaGalleryView
 	...
-	app:orientation="horizontal"
+	app:gallery_orientation="horizontal"
 	/>
 
 ```

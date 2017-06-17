@@ -3,7 +3,7 @@
     <declare-styleable name="MediaGalleryView">
         <attr name="span_count" format="integer" />
         <attr name="place_holder" format="reference" />
-        <attr name="orientation" format="enum">
+        <attr name="gallery_orientation" format="enum">
             <enum name="horizontal" value="0" />
             <enum name="vertical" value="1" />
         </attr>

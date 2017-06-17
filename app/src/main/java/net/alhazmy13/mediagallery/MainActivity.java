@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements MediaGalleryView.
         view.setImages(list);
         view.setOnImageClickListener(this);
         view.setPlaceHolder(R.drawable.media_gallery_placeholder);
-        view.setOrientation(MediaGalleryView.VERTICAL);
+        view.setOrientation(MediaGalleryView.HORIZONTAL);
         view.setImageSize(500,MediaGalleryView.DEFAULT);
         view.notifyDataSetChanged();
 
