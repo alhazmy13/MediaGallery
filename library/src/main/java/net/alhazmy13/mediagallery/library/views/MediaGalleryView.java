@@ -26,7 +26,7 @@ public class MediaGalleryView extends RecyclerView {
 
     private final Context mContext;
     private GridImagesAdapter mAdapter;
-    private ArrayList<String> mItemList;
+    private ArrayList<String> mDataset;
     private Drawable mPlaceHolder;
     private OnImageClicked mOnImageClickListener;
     private int mSpanCount;
@@ -71,8 +71,8 @@ public class MediaGalleryView extends RecyclerView {
      * Init.
      */
     public void init() {
-        mItemList = new ArrayList<>();
-        mAdapter = new GridImagesAdapter(mContext, mItemList, mPlaceHolder);
+        mDataset = new ArrayList<>();
+        mAdapter = new GridImagesAdapter(mContext, mDataset, mPlaceHolder);
         setOrientation(mOrientation);
         mAdapter.setImageSize(mWidth, mHeight);
         setAdapter(mAdapter);
@@ -84,8 +84,8 @@ public class MediaGalleryView extends RecyclerView {
      * @param itemList the item list
      */
     public void setImages(ArrayList<String> itemList) {
-        this.mItemList.clear();
-        this.mItemList.addAll(itemList);
+        this.mDataset.clear();
+        this.mDataset.addAll(itemList);
     }
 
     /**

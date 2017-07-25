@@ -1,12 +1,15 @@
 package net.alhazmy13.mediagallery;
 
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.widget.LinearLayout;
 
 import net.alhazmy13.mediagallery.library.activity.MediaGallery;
 import net.alhazmy13.mediagallery.library.views.MediaGalleryView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements MediaGalleryView.OnImageClicked {
@@ -23,15 +26,18 @@ public class MainActivity extends AppCompatActivity implements MediaGalleryView.
         view.setOnImageClickListener(this);
         view.setPlaceHolder(R.drawable.media_gallery_placeholder);
         view.setOrientation(MediaGalleryView.HORIZONTAL);
-        view.setImageSize(500,MediaGalleryView.DEFAULT);
+//        view.setImageSize(500,MediaGalleryView.DEFAULT);
         view.notifyDataSetChanged();
 
 
 
     }
 
-    private ArrayList<String> getFakeList() {
+    private ArrayList getFakeList() {
         ArrayList<String> imagesList = new ArrayList<>();
+        Bitmap image = Bitmap.createBitmap(500, 500, Bitmap.Config.ARGB_8888);
+        image.eraseColor(android.graphics.Color.GREEN);
+        imagesList.add(bitMapToString(image));
         imagesList.add("http://static0.passel.co/wp-content/uploads/2016/12/23193634/tumblr_oiboua3s6F1slhhf0o1_500.jpg");
         imagesList.add("http://static0.passel.co/wp-content/uploads/2016/11/08192732/tumblr_oev1qbnble1ted1sho1_500.jpg");
         imagesList.add("http://static0.passel.co/wp-content/uploads/2016/11/18184202/tumblr_ntyttsx2Y51ted1sho1_500.jpg");
@@ -57,5 +63,12 @@ public class MainActivity extends AppCompatActivity implements MediaGalleryView.
                 .placeHolder(R.drawable.media_gallery_placeholder)
                 .selectedImagePosition(pos)
                 .show();
+    }
+
+    public String bitMapToString(Bitmap bitmap){
+        ByteArrayOutputStream baos=new  ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
+        byte [] b=baos.toByteArray();
+        return Base64.encodeToString(b, Base64.DEFAULT);
     }
 }

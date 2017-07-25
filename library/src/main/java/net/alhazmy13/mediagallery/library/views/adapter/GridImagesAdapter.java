@@ -11,14 +11,16 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
 import net.alhazmy13.mediagallery.library.R;
+import net.alhazmy13.mediagallery.library.Utility;
 import net.alhazmy13.mediagallery.library.views.MediaGalleryView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 
 public class GridImagesAdapter extends RecyclerView.Adapter<GridImagesAdapter.ViewHolder> {
     private static final String TAG = "GridImagesAdapter";
-    private ArrayList<String> imageURLs;
+    private ArrayList<String> mDataset;
     private Context mContext;
     private Drawable imgPlaceHolderResId;
     private MediaGalleryView.OnImageClicked mClickListener;
@@ -26,7 +28,7 @@ public class GridImagesAdapter extends RecyclerView.Adapter<GridImagesAdapter.Vi
     private int mWidth;
 
     public GridImagesAdapter(Context activity, ArrayList<String> imageURLs, Drawable imgPlaceHolderResId) {
-        this.imageURLs = imageURLs;
+        this.mDataset = imageURLs;
         this.mContext = activity;
         this.imgPlaceHolderResId = imgPlaceHolderResId;
     }
@@ -39,10 +41,7 @@ public class GridImagesAdapter extends RecyclerView.Adapter<GridImagesAdapter.Vi
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        Glide.with(mContext)
-                .load(imageURLs.get(holder.getAdapterPosition()))
-                .placeholder(imgPlaceHolderResId)
-                .into(holder.image);
+        boolean isImageValid;
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +60,33 @@ public class GridImagesAdapter extends RecyclerView.Adapter<GridImagesAdapter.Vi
             params.width = mWidth;
 
         holder.image.setLayoutParams(params);
+
+        String o = mDataset.get(holder.getAdapterPosition());
+        if (Utility.isValidURL(o)) {
+            Glide.with(mContext)
+                    .load(o)
+                    .placeholder(imgPlaceHolderResId)
+                    .into(holder.image);
+            isImageValid = true;
+        } else {
+            ByteArrayOutputStream stream = Utility.toByteArrayOutputStream(o);
+            if (stream != null) {
+                Glide.with(mContext)
+                        .load(stream.toByteArray())
+                        .asBitmap()
+                        .placeholder(imgPlaceHolderResId)
+                        .into(holder.image);
+                isImageValid = true;
+
+            } else {
+                throw new RuntimeException("Image at position: " + position + " it's not valid image");
+            }
+
+        }
+        if(!isImageValid) {
+            throw new RuntimeException("Value at position: " + position + " Should be as url string or bitmap object");
+        }
+
     }
 
 
@@ -70,7 +96,7 @@ public class GridImagesAdapter extends RecyclerView.Adapter<GridImagesAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return imageURLs.size();
+        return mDataset.size();
     }
 
     public void setOnImageClickListener(MediaGalleryView.OnImageClicked onImageClickListener) {

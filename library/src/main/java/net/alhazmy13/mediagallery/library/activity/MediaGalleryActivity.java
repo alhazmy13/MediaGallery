@@ -32,8 +32,8 @@ public class MediaGalleryActivity extends BaseActivity implements ViewPager.OnPa
         // init layouts
         initViews();
 
-        mViewPager.setAdapter(new ViewPagerAdapter(this, imageURLs, mToolbar, imagesHorizontalList));
-        hAdapter = new HorizontalListAdapters(this, imageURLs, this,placeHolder);
+        mViewPager.setAdapter(new ViewPagerAdapter(this, dataSet, mToolbar, imagesHorizontalList));
+        hAdapter = new HorizontalListAdapters(this, dataSet, this,placeHolder);
         imagesHorizontalList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         imagesHorizontalList.setAdapter(hAdapter);
         hAdapter.notifyDataSetChanged();

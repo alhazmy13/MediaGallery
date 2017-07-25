@@ -1,6 +1,7 @@
 package net.alhazmy13.mediagallery.library.activity.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.support.v7.widget.RecyclerView;
@@ -12,7 +13,9 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
 import net.alhazmy13.mediagallery.library.R;
+import net.alhazmy13.mediagallery.library.Utility;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 
@@ -48,10 +51,32 @@ public class HorizontalListAdapters extends RecyclerView.Adapter<HorizontalListA
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        Glide.with(mContext)
-                .load(mDataset.get(holder.getAdapterPosition()))
-                .placeholder(placeHolder == -1?R.drawable.media_gallery_placeholder :placeHolder)
-                .into(holder.image);
+        String o = mDataset.get(holder.getAdapterPosition());
+        boolean isValidImage;
+        if (Utility.isValidURL(o)) {
+            Glide.with(mContext)
+                    .load(String.valueOf(o))
+                    .placeholder(placeHolder == -1 ? R.drawable.media_gallery_placeholder : placeHolder)
+                    .into(holder.image);
+            isValidImage =true;
+        } else {
+
+            ByteArrayOutputStream stream = Utility.toByteArrayOutputStream(o);
+            if (stream != null) {
+                Glide.with(mContext)
+                        .load(stream.toByteArray())
+                        .asBitmap()
+                        .placeholder(placeHolder == -1 ? R.drawable.media_gallery_placeholder : placeHolder)
+                        .into(holder.image);
+                isValidImage = true;
+            } else {
+                throw new RuntimeException("Image at position: " + position + " it's not valid image");
+
+            }
+        }
+        if(!isValidImage){
+            throw new RuntimeException("Value at position: " + position + " Should be as url string or bitmap object");
+        }
         ColorMatrix matrix = new ColorMatrix();
         if (mSelectedItem != holder.getAdapterPosition()) {
             matrix.setSaturation(0);
@@ -86,7 +111,7 @@ public class HorizontalListAdapters extends RecyclerView.Adapter<HorizontalListA
      * @param position the position
      */
     public void setSelectedItem(int position) {
-        if(position >= mDataset.size()) return;
+        if (position >= mDataset.size()) return;
         mSelectedItem = position;
         notifyDataSetChanged();
     }

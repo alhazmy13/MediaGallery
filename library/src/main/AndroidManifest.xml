@@ -2,8 +2,7 @@
     package="net.alhazmy13.mediagallery.library">
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <application android:allowBackup="true"
-        android:supportsRtl="true">
+    <application >
         <activity android:name=".activity.MediaGalleryActivity"/>
     </application>
 
